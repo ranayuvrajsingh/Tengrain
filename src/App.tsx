@@ -1,22 +1,38 @@
 
-import ScrollableCards from "./components/Carousel";
-import Navbar from "./components/Navbar";
-import AgricultureSection from "./components/AgricultureSection";
-import QualityAgriProductsSection from "./components/QualityAgriProductsSection";
-import QualityAgriProductsSection2 from "./components/QualityAgriProductsSection2";
-import ContactSection from "./components/ContactSection";
-import Footer from "./components/Footer";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar';
+// import { Settings } from '@mui/icons-material';
+import { lazy, Suspense } from 'react';
+import Service from './components/Service';
+import Product from './components/Product';
 
-export default function App() {
+
+
+// Lazy load the page components
+const Home = lazy(() => import('./components/Home '));
+const About = lazy(() => import('./components/About'));
+const Contact = lazy(() => import('./components/Contact'));
+// const Profile = lazy(() => import('./components/Profile'));
+// const Settings = lazy(() => import('./components/Settings'));
+// const NotFound = lazy(() => import('./components/NotFound'));
+
+const App = () => {
   return (
-    <div>
+    <Router>
       <Navbar />
-      <ScrollableCards />
-      <AgricultureSection/>
-      <QualityAgriProductsSection/>
-      <QualityAgriProductsSection2/>
-      <ContactSection/>
-      <Footer/>
-    </div>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/service" element={<Service />} />
+          <Route path="/profile/settings" element={<Product />} />
+          <Route path="/profile/settings" element={<Contact />} />
+      
+        </Routes>
+      </Suspense>
+    </Router>
   );
-}
+};
+
+export default App;

@@ -1,11 +1,6 @@
 import React, { useState } from "react";
-import {
-  FaMapMarkerAlt,
-  FaPhoneAlt,
-  FaTwitter,
-  FaFacebookF,
-  FaSearch,
-} from "react-icons/fa";
+import { FaMapMarkerAlt, FaPhoneAlt, FaTwitter, FaFacebookF, FaSearch } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import DropdownMenu from "./DropdownMenu";
 
 const Navbar: React.FC = () => {
@@ -13,13 +8,8 @@ const Navbar: React.FC = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isOverlayVisible, setIsOverlayVisible] = useState(false);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen); // Toggle mobile menu open and close
-  };
-
-  const toggleSearch = () => {
-    setIsSearchOpen(!isSearchOpen); // Toggle search bar open and close
-  };
+  const toggleMenu = () => setIsOpen(!isOpen);
+  const toggleSearch = () => setIsSearchOpen(!isSearchOpen);
 
   return (
     <div className="relative">
@@ -32,37 +22,17 @@ const Navbar: React.FC = () => {
           <span>+91 9876543210</span>
         </div>
         <div className="flex items-center space-x-4">
-          <a
-            href="https://twitter.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
             <FaTwitter className="hover:text-blue-400" />
           </a>
-          <a
-            href="https://facebook.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
             <FaFacebookF className="hover:text-blue-600" />
           </a>
         </div>
       </div>
 
       {/* Video background */}
-      <video
-        className="relative inset-0 object-cover w-full h-full"
-        autoPlay
-        muted
-        loop
-        onEnded={(e) => e.currentTarget.pause()}
-      >
-        <source
-          src="https://tengrain.com/wp-content/uploads/2022/09/VID-20211109-WA0000.mp4"
-          type="video/mp4"
-        />
-        Your browser does not support the video tag.
-      </video>
+     
 
       {/* Navbar */}
       <nav className="fixed top-9 left-0 right-0 bg-black bg-opacity-80 z-30">
@@ -70,38 +40,38 @@ const Navbar: React.FC = () => {
           <div className="flex justify-between h-16 items-center">
             {/* Logo */}
             <div className="flex-shrink-0 flex items-center">
-              <a href="#" className="text-2xl font-bold text-white">
+              <Link to="/" className="text-2xl font-bold text-white">
                 <img src="/TENGRAIN-ai-1.png" alt="Logo" width={200} />
-              </a>
+              </Link>
             </div>
 
             {/* Desktop Menu */}
             <div className="hidden md:flex space-x-8">
-              <a
-                href="#"
+              <Link
+                to="/"
                 className="text-white hover:text-green-500 uppercase border-b-8 border-transparent hover:border-green-500 bg-transparent hover:bg-white px-4 py-2"
               >
                 Home
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                to="/about"
                 className="text-white hover:text-green-500 uppercase border-b-8 border-transparent hover:border-green-500 bg-transparent hover:bg-white px-4 py-2"
               >
                 About Us
-              </a>
+              </Link>
 
               {/* Services with dropdown */}
               <div
-                className="relative"
+                className="flex relative  "
                 onMouseEnter={() => setIsOverlayVisible(true)}
                 onMouseLeave={() => setIsOverlayVisible(false)}
               >
-                <a
-                  href="#"
-                  className="text-white hover:text-green-500 uppercase border-b-8 border-transparent hover:border-green-500 bg-transparent hover:bg-white px-4 py-1 mt-4"
+                <Link
+                  to="/service"
+                  className="text-white flex justify-center items-center  hover:text-green-500 uppercase border-b-8 border-transparent hover:border-green-500 bg-transparent hover:bg-white  "
                 >
                   Services
-                </a>
+                </Link>
 
                 {/* Full-page overlay */}
                 {isOverlayVisible && (
@@ -115,13 +85,18 @@ const Navbar: React.FC = () => {
                   </div>
                 )}
               </div>
-
-              <a
-                href="#"
+              <Link
+                to="/product"
+                className="text-white hover:text-green-500 uppercase border-b-8 border-transparent hover:border-green-500 bg-transparent hover:bg-white px-4 py-2"
+              >
+               Products
+              </Link>
+              <Link
+                to="/contact"
                 className="text-white hover:text-green-500 uppercase border-b-8 border-transparent hover:border-green-500 bg-transparent hover:bg-white px-4 py-2"
               >
                 Contact
-              </a>
+              </Link>
             </div>
 
             {/* Search Icon */}
@@ -166,27 +141,22 @@ const Navbar: React.FC = () => {
       {isOpen && (
         <div className="mobile-menu fixed inset-0 bg-black bg-opacity-75 z-50 mt-24">
           <ul className="text-white">
-            {/* Home link with hover effect */}
             <li className="py-2 px-4" onClick={toggleMenu}>
-              <a
-                href="#home"
+              <Link
+                to="/"
                 className="block w-full h-full hover:bg-white hover:bg-opacity-10 hover:text-green-400 transition duration-300 ease-in-out"
               >
                 Home
-              </a>
+              </Link>
             </li>
-
-            {/* About Us link with hover effect */}
             <li className="py-2 px-4" onClick={toggleMenu}>
-              <a
-                href="#about"
+              <Link
+                to="/about"
                 className="block w-full h-full hover:bg-white hover:bg-opacity-10 hover:text-green-400 transition duration-300 ease-in-out"
               >
                 About Us
-              </a>
+              </Link>
             </li>
-
-            {/* Services dropdown with hover effect */}
             <li className="py-2 px-4 relative group">
               <div
                 className="cursor-pointer block w-full h-full hover:bg-white hover:bg-opacity-10 hover:text-green-400 transition duration-300 ease-in-out"
@@ -194,21 +164,17 @@ const Navbar: React.FC = () => {
               >
                 Services
               </div>
-
-              {/* Scrollable dropdown menu with hover */}
               <div className="max-h-40 overflow-y-auto mt-2 bg-white text-black p-4 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out absolute left-0 w-full">
                 <DropdownMenu />
               </div>
             </li>
-
-            {/* Contact link with hover effect */}
             <li className="py-2 px-4" onClick={toggleMenu}>
-              <a
-                href="#contact"
+              <Link
+                to="/contact"
                 className="block w-full h-full hover:bg-white hover:bg-opacity-10 hover:text-green-400 transition duration-300 ease-in-out"
               >
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

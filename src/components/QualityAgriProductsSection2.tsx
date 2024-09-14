@@ -5,7 +5,7 @@ const QualityAgriProductsSection2: React.FC = () => {
     <div className="bg-gradient-to-b from-white to-green-50 py-24 px-16">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-24">
         {/* Left Section */}
-        <div className="md:w-1/2 flex justify-start mr-48  -ml-14">
+        <div className="md:w-1/2 flex justify-start mr-48  -ml-28">
           <img
             loading="lazy"
             decoding="async"
