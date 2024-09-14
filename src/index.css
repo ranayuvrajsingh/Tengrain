@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.custom-dot-list-style {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  bottom: -25px; /* Adjust position if necessary */
+}
+
+.custom-dot-list-style li {
+  margin: 0 5px; /* Spacing between dots */
+}
+
+.custom-dot-list-style li button {
+  width: 12px; /* Dot size */
+  height: 12px;
+  border-radius: 50%;
+  background-color: #d3d3d3; /* Inactive dot color */
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.custom-dot-list-style li.slick-active button {
+  background-color: green; /* Active dot fill color */
+}
+
+.custom-dot-list-style li button:hover {
+  background-color: darkgreen; /* Change color on hover */
+}
+
+/* Add this CSS to your global styles or a CSS module */
+
+@keyframes dropIn {
+  0% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-drop {
+  animation: dropIn 0.9s ease-out forwards;
+}
+
+
+.icon-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.icon-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 10;
+  left: -7px;
+  width: 200%;
+  height: 120%;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  transform: scaleX(0) scaleY(0);
+  transition: transform 0.3s ease;
+  z-index: 0;
+}
+
+.icon-wrapper:hover::before {
+  transform: scaleX(1) scaleY(1);
+}
+
+.icon-wrapper i {
+  position: relative;
+  z-index: 1;
+  color: #1C4837; /* Default icon color */
+  transition: color 0.3s ease;
+}
+
+.icon-wrapper:hover i {
+  color: #4F9DA6; /* Icon color on hover */
+}
+
+
+
+.custom-icon-wrapper:hover {
+ color: #05bd05; /* Dark green background */
+}
+
+
+.icon-container {
+  position: relative;
+  display: inline-block;
+}
+
+.animated-icon {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.background-circle {
+  transition: fill 0.5s ease;
+}
+
+.icon-path {
+  transition: fill 0.5s ease;
+}
+
+.ink-cover {
+  fill: #000; /* Default black ink color */
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.icon-container:hover .ink-cover {
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.icon-container:hover .icon-path {
+  fill: #fff; /* Change icon color to white on hover */
+}
+
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 23px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.line {
+  width: 100%;
+  height: 5px;
+  background-color: #fff;
+  transition: all 0.3s ease;
+  
+}
+
+.line1 {
+  transform-origin: top left;
+}
+
+.line2 {
+  opacity: 1;
+}
+
+.line3 {
+  transform-origin: bottom left;
+}
+
+.hamburger.open .line1 {
+  transform: rotate(45deg);
+}
+
+.hamburger.open .line2 {
+  opacity: 0;
+}
+
+.hamburger.open .line3 {
+  transform: rotate(-45deg);
+}
