@@ -2,8 +2,8 @@
 import React from 'react';
 
 // Leaf Icon Component
-export const LeafIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
-  <svg version="1.1" id="Layer_1_coupon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+export const LeafIcon: React.FC<React.SVGProps<SVGSVGElement>> = () => (
+  <svg version="1.1" id="Layer_1_coupon" xmlns="http://www.w3.org/2000/svg"  xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xmlSpace="preserve">
 <path d="M485.6,477c0,5-4.1,9-9,9s-9-4.1-9-9s4.1-9,9-9S485.6,472,485.6,477z M446.1,468c-4.9,0-9,4-9,9s4,9,9,9s9-4,9-9
 	S451,468,446.1,468z M472.9,455.6c4.6,2,9.9-0.1,11.9-4.6c2-4.6-0.1-9.9-4.6-11.9c-4.6-2-9.9,0.1-11.9,4.7
 	C466.3,448.3,468.3,453.6,472.9,455.6z M94.9,71.7H37.5c-4.4,0-8,3.6-8,8s3.6,8,8,8h57.4c4.4,0,8-3.6,8-8S99.3,71.7,94.9,71.7z
@@ -47,8 +47,8 @@ export const LeafIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
 );
 
 // Chart Icon Component
-export const ChartIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
-  <svg version="1.1" id="Layer_1_stats" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+export const ChartIcon: React.FC<React.SVGProps<SVGSVGElement>> = () => (
+  <svg version="1.1" id="Layer_1_stats" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xmlSpace="preserve">
 <linearGradient id="SVGID_1_stats" gradientUnits="userSpaceOnUse" x1="349.7182" y1="415.6154" x2="360.0696" y2="149.4364">
         <stop offset="0" style={{ stopColor: '#93DF49' }} />
         <stop offset="1" style={{ stopColor: '#93DF49' }} />
@@ -72,8 +72,8 @@ export const ChartIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
 );
 
 // Calculator Icon Component
-export const CalculatorIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
-  <svg version="1.1" id="Layer_1_money" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+export const CalculatorIcon: React.FC<React.SVGProps<SVGSVGElement>> = () => (
+  <svg version="1.1" id="Layer_1_money" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xmlSpace="preserve">
    <linearGradient id="SVGID_1_money" gradientUnits="userSpaceOnUse" x1="253.4158" y1="462.3286" x2="253.4158" y2="83.5269" className="gradient-element">
         <stop offset="0" style={{ stopColor: '#93DF49' }} />
         <stop offset="1" style={{ stopColor: '#93DF49' }} />
@@ -115,8 +115,8 @@ export const CalculatorIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) =
 );
 
 // Seedling Icon Component
-export const SeedlingIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
-  <svg version="1.1" id="Layer_1_payment" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+export const SeedlingIcon: React.FC<React.SVGProps<SVGSVGElement>> = () => (
+  <svg version="1.1" id="Layer_1_payment" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xmlSpace="preserve">
 <g>
 <linearGradient id="SVGID_1_payment" gradientUnits="userSpaceOnUse" x1="180.9487" y1="147.8241" x2="344.8097" y2="147.8241">
         <stop offset="0" style={{ stopColor: '#93DF49' }} />
