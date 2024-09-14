@@ -2,7 +2,8 @@ import AboutQualityAgriProductsSection from "./AboutQualityAgriProductsSection"
 import AboutQualityAgriProductsSection2 from "./AboutQualityAgriProductsSection2"
 import AboutQualityAgriProductsSection3 from "./AboutQualityAgriProductsSection3"
 import AgricultureSection from "./AgricultureSection"
-import Footer2 from "./footer2"
+import Footer2 from "./Footer2"
+
 
 function About() {
   return (
