@@ -10,27 +10,21 @@ import DropdownMenu from "./DropdownMenu";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isSearchOpen, setIsSearchOpen] = useState(false); // Search toggle state
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [isServicesHovered, setIsServicesHovered] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isOverlayVisible, setIsOverlayVisible] = useState(false);
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen); // Toggle menu open and close
+    setIsOpen(!isOpen); // Toggle mobile menu open and close
   };
 
   const toggleSearch = () => {
     setIsSearchOpen(!isSearchOpen); // Toggle search bar open and close
   };
 
-  const handleServicesHover = (status: boolean) => {
-    setIsServicesHovered(status);
-    setIsOverlayVisible(status);
-  };
-
   return (
     <div className="relative">
-<div className="fixed top-0 left-0 right-0 bg-black text-white text-sm py-2 px-4 flex justify-between items-center z-40">
+      {/* Top Black Strip */}
+      <div className="fixed top-0 left-0 right-0 bg-black text-white text-sm py-2 px-4 flex justify-between items-center z-40">
         <div className="flex items-center space-x-4">
           <FaMapMarkerAlt />
           <span>Jaipur, Rajasthan</span>
@@ -55,7 +49,6 @@ const Navbar: React.FC = () => {
         </div>
       </div>
 
-
       {/* Video background */}
       <video
         className="relative inset-0 object-cover w-full h-full"
@@ -71,31 +64,6 @@ const Navbar: React.FC = () => {
         Your browser does not support the video tag.
       </video>
 
-      {/* Top Black Strip */}
-      {/* <div className="absolute top-0 left-0 right-0 bg-black text-white text-sm py-2 px-4 flex justify-between items-center z-20">
-        <div className="flex items-center space-x-4">
-          <FaMapMarkerAlt />
-          <span>Jaipur, Rajasthan</span>
-          <FaPhoneAlt />
-          <span>+91 9876543210</span>
-        </div>
-        <div className="flex items-center space-x-4">
-          <a
-            href="https://twitter.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaTwitter className="hover:text-blue-400" />
-          </a>
-          <a
-            href="https://facebook.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaFacebookF className="hover:text-blue-600" />
-          </a>
-        </div>
-      </div> */}
       {/* Navbar */}
       <nav className="fixed top-9 left-0 right-0 bg-black bg-opacity-80 z-30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -125,8 +93,8 @@ const Navbar: React.FC = () => {
               {/* Services with dropdown */}
               <div
                 className="relative"
-                onMouseEnter={() => handleServicesHover(true)}
-                onMouseLeave={() => handleServicesHover(false)}
+                onMouseEnter={() => setIsOverlayVisible(true)}
+                onMouseLeave={() => setIsOverlayVisible(false)}
               >
                 <a
                   href="#"
@@ -140,8 +108,8 @@ const Navbar: React.FC = () => {
                   <div
                     className="fixed inset-0 bg-white bg-opacity-90 backdrop-blur-md z-40 overflow-auto"
                     style={{ top: "5rem" }} // Adjust this value to move the popup down
-                    onMouseEnter={() => handleServicesHover(true)}
-                    onMouseLeave={() => handleServicesHover(false)}
+                    onMouseEnter={() => setIsOverlayVisible(true)}
+                    onMouseLeave={() => setIsOverlayVisible(false)}
                   >
                     <DropdownMenu />
                   </div>
