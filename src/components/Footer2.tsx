@@ -10,7 +10,6 @@ const NewsletterForm = () => {
           <span>Subscribe to our Newsletter</span>
         </h4>
       </header>
-      {/* <div className="mb-6 border-b border-gray-600"></div> */}
       <div className="flex items-center max-w-md mx-auto">
         <form
           action="/about/#wpcf7-f1292-p11-o2"
@@ -20,7 +19,6 @@ const NewsletterForm = () => {
           noValidate
         >
           <input
-          
             className="flex-1 p-3 rounded-l border border-gray-600 bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:border-green-400"
             aria-required="true"
             aria-invalid="false"
@@ -39,9 +37,6 @@ const NewsletterForm = () => {
   );
 };
 
-
-
-
 const Footer2: React.FC = () => {
   return (
     <div className="bg-black py-12 px-6">
@@ -52,7 +47,7 @@ const Footer2: React.FC = () => {
         {/* First Section */}
         <div className="space-y-4">
           <img
-            src="/logo-8.png" // Ensure to replace with the correct path to your logo
+            src="/TENGRAIN-ai-1.png" // Ensure to replace with the correct path to your logo
             alt="Company Logo"
             className="w-40 h-auto"
           />
@@ -142,6 +137,15 @@ const Footer2: React.FC = () => {
               <span>United Kingdom, India, Africa</span>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Footer Bottom Section */}
+      <div className="mt-24 flex flex-col items-center  flex-wrap border-t border-gray-600 py-4 text-center text-gray-300">
+        <p className="text-sm">©2022 Tengrain. All rights reserved</p>
+        <div className="mt-2 space-x-4">
+          <a href="/privacy-policy" className="text-green-400 hover:text-green-300">Privacy Policy</a>
+          <a href="/cookie-policy" className="text-green-400 hover:text-green-300">Cookie Policy</a>
         </div>
       </div>
     </div>

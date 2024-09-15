@@ -1,46 +1,32 @@
+import ContactSection2 from "./ContactSection2";
+import DropdownMenu2 from "./DropdownMenu2";
+import Footer2 from "./Footer2";
 
-const ServicesSection = () => {
+function Service() {
   return (
-    <div className="relative bg-gray-800 text-white py-12">
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: 'url("")',
-          backgroundPositionY: '0px',
-          backgroundAttachment: 'fixed', // Parallax effect
-          backgroundSize: 'cover', // Ensure the image covers the entire div
-          filter: 'blur(0px)' // Apply blur effect if needed
-        }}
-      />
-      <div className="relative z-10 p-6 bg-gray-800 text-white rounded-lg shadow-lg">
-        {/* Content */}
-        <header className="mb-4">
-          <h4 className="text-2xl font-semibold tracking-tight">
-            <span>Our Services</span>
-          </h4>
-        </header>
-        <div className="mb-6 border-b border-gray-600"></div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {/* Replace the following with your service items */}
-          <div className="p-6 bg-gray-900 rounded-lg shadow-lg">
-            <h5 className="text-lg font-semibold">Agricultural Development</h5>
-            <p className="text-gray-400">We focus on enhancing agricultural practices...</p>
-          </div>
-          <div className="p-6 bg-gray-900 rounded-lg shadow-lg">
-            <h5 className="text-lg font-semibold">Agricultural Economics</h5>
-            <p className="text-gray-400">Analyze and optimize economic aspects...</p>
-          </div>
-          <div className="p-6 bg-gray-900 rounded-lg shadow-lg">
-            <h5 className="text-lg font-semibold">Agricultural Extension</h5>
-            <p className="text-gray-400">Provide outreach and educational services...</p>
-          </div>
-          {/* Add more services as needed */}
+    <>
+      <div className="relative w-full h-[70vh]">
+        <img
+          src="https://tengrain.com/wp-content/uploads/2022/09/New-Project-4-1-2.jpg"
+          alt="Top Section Background"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+
+        {/* Overlay Text */}
+        <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <h1 className="text-white text-4xl md:text-6xl font-bold capitalize text-center p-4 md:p-8">
+            Service
+          </h1>
         </div>
       </div>
-    </div>
+      <div className="mt-40">
+        <DropdownMenu2 />
+      </div>
+
+      <ContactSection2 />
+      <Footer2 />
+    </>
   );
-};
+}
 
-export default ServicesSection;
-
+export default Service;

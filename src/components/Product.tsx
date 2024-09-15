@@ -1,8 +1,15 @@
+import Footer2 from "./Footer2";
+import ProductList from "./ProductList";
+import TopSection from "./TopSection";
 
 function Product() {
   return (
-    <div>Product</div>
-  )
+    <div>
+      <TopSection />
+      <ProductList/>
+      <Footer2/>
+    </div>
+  );
 }
 
-export default Product
+export default Product;

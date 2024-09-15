@@ -11,10 +11,10 @@ function About() {
         <img
           src="https://tengrain.com/wp-content/uploads/2022/09/New-Project-3-1-2.jpg"
           alt="About Us"
-          className="w-full h-auto"
+          className="w-full h-[80vh]"
         />
         {/* Overlay Text */}
-        <div className="absolute inset-0 flex items-end justify-end mb-40">
+        <div className="absolute inset-0 flex items-center justify-center mb-40">
           <h1 className="text-white text-4xl md:text-6xl font-bold capitalize bg-black bg-opacity-30 p-10 rounded">
             About Us
           </h1>

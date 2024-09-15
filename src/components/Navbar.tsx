@@ -1,15 +1,26 @@
 import React, { useState } from "react";
-import { FaMapMarkerAlt, FaPhoneAlt, FaTwitter, FaFacebookF, FaSearch } from "react-icons/fa";
-import { Link } from "react-router-dom";
-import DropdownMenu from "./DropdownMenu";
+import {
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+  FaTwitter,
+  FaFacebookF,
+  FaSearch,
+} from "react-icons/fa";
+import { Link, useLocation } from "react-router-dom";
+import { DropdownMenu } from "./DropdownMenu";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isOverlayVisible, setIsOverlayVisible] = useState(false);
 
+  const location = useLocation(); // Get current path
+
   const toggleMenu = () => setIsOpen(!isOpen);
   const toggleSearch = () => setIsSearchOpen(!isSearchOpen);
+
+  // Helper function to check if a route is active
+  const isActive = (path: string) => location.pathname === path;
 
   return (
     <div className="relative">
@@ -22,17 +33,22 @@ const Navbar: React.FC = () => {
           <span>+91 9876543210</span>
         </div>
         <div className="flex items-center space-x-4">
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://twitter.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaTwitter className="hover:text-blue-400" />
           </a>
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://facebook.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaFacebookF className="hover:text-blue-600" />
           </a>
         </div>
       </div>
-
-      {/* Video background */}
-     
 
       {/* Navbar */}
       <nav className="fixed top-9 left-0 right-0 bg-black bg-opacity-80 z-30">
@@ -49,26 +65,38 @@ const Navbar: React.FC = () => {
             <div className="hidden md:flex space-x-8">
               <Link
                 to="/"
-                className="text-white hover:text-green-500 uppercase border-b-8 border-transparent hover:border-green-500 bg-transparent hover:bg-white px-4 py-2"
+                className={`${
+                  isActive("/")
+                    ? "text-green-500 border-green-500"
+                    : "text-white hover:text-green-500 border-transparent"
+                } uppercase border-b-8 bg-transparent hover:bg-white px-4 py-2`}
               >
                 Home
               </Link>
               <Link
                 to="/about"
-                className="text-white hover:text-green-500 uppercase border-b-8 border-transparent hover:border-green-500 bg-transparent hover:bg-white px-4 py-2"
+                className={`${
+                  isActive("/about")
+                    ? "text-green-500 border-green-500"
+                    : "text-white hover:text-green-500 border-transparent"
+                } uppercase border-b-8 bg-transparent hover:bg-white px-4 py-2`}
               >
                 About Us
               </Link>
 
               {/* Services with dropdown */}
               <div
-                className="flex relative  "
+                className="flex relative"
                 onMouseEnter={() => setIsOverlayVisible(true)}
                 onMouseLeave={() => setIsOverlayVisible(false)}
               >
                 <Link
                   to="/service"
-                  className="text-white flex justify-center items-center  hover:text-green-500 uppercase border-b-8 border-transparent hover:border-green-500 bg-transparent hover:bg-white  "
+                  className={`${
+                    isActive("/service")
+                      ? "text-green-500 border-green-500"
+                      : "text-white hover:text-green-500 border-transparent"
+                  } uppercase border-b-8 bg-transparent hover:bg-white text-white flex justify-center items-center  hover:text-green-500  border-transparent hover:border-green-500  `}
                 >
                   Services
                 </Link>
@@ -76,8 +104,8 @@ const Navbar: React.FC = () => {
                 {/* Full-page overlay */}
                 {isOverlayVisible && (
                   <div
-                    className="fixed inset-0 bg-white bg-opacity-90 backdrop-blur-md z-40 overflow-auto"
-                    style={{ top: "5rem" }} // Adjust this value to move the popup down
+                    className="fixed inset-0 min-w-full bg-opacity-90 backdrop-blur-md z-40 overflow-auto"
+                    style={{ top: "6rem" }}
                     onMouseEnter={() => setIsOverlayVisible(true)}
                     onMouseLeave={() => setIsOverlayVisible(false)}
                   >
@@ -85,15 +113,24 @@ const Navbar: React.FC = () => {
                   </div>
                 )}
               </div>
+
               <Link
                 to="/product"
-                className="text-white hover:text-green-500 uppercase border-b-8 border-transparent hover:border-green-500 bg-transparent hover:bg-white px-4 py-2"
+                className={`${
+                  isActive("/product")
+                    ? "text-green-500 border-green-500"
+                    : "text-white hover:text-green-500 border-transparent"
+                } uppercase border-b-8 bg-transparent hover:bg-white px-4 py-2`}
               >
-               Products
+                Products
               </Link>
               <Link
                 to="/contact"
-                className="text-white hover:text-green-500 uppercase border-b-8 border-transparent hover:border-green-500 bg-transparent hover:bg-white px-4 py-2"
+                className={`${
+                  isActive("/contact")
+                    ? "text-green-500 border-green-500"
+                    : "text-white hover:text-green-500 border-transparent"
+                } uppercase border-b-8 bg-transparent hover:bg-white px-4 py-2`}
               >
                 Contact
               </Link>
@@ -122,7 +159,7 @@ const Navbar: React.FC = () => {
             <div className="-mr-2 flex md:hidden">
               <button
                 type="button"
-                onClick={toggleMenu} // This toggles the mobile menu open/close
+                onClick={toggleMenu}
                 className="inline-flex items-center justify-center p-2 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white z-50"
               >
                 <span className="sr-only">Open main menu</span>
@@ -144,7 +181,11 @@ const Navbar: React.FC = () => {
             <li className="py-2 px-4" onClick={toggleMenu}>
               <Link
                 to="/"
-                className="block w-full h-full hover:bg-white hover:bg-opacity-10 hover:text-green-400 transition duration-300 ease-in-out"
+                className={`${
+                  isActive("/")
+                    ? "bg-green-500 text-white"
+                    : "hover:bg-white hover:bg-opacity-10 hover:text-green-400"
+                } block w-full h-full transition duration-300 ease-in-out`}
               >
                 Home
               </Link>
@@ -152,29 +193,52 @@ const Navbar: React.FC = () => {
             <li className="py-2 px-4" onClick={toggleMenu}>
               <Link
                 to="/about"
-                className="block w-full h-full hover:bg-white hover:bg-opacity-10 hover:text-green-400 transition duration-300 ease-in-out"
+                className={`${
+                  isActive("/about")
+                    ? "bg-green-500 text-white"
+                    : "hover:bg-white hover:bg-opacity-10 hover:text-green-400"
+                } block w-full h-full transition duration-300 ease-in-out`}
               >
                 About Us
               </Link>
             </li>
-            <li className="py-2 px-4 relative group">
-              <div
-                className="cursor-pointer block w-full h-full hover:bg-white hover:bg-opacity-10 hover:text-green-400 transition duration-300 ease-in-out"
-                onClick={() => toggleMenu()}
+            
+            <li className="py-2 px-4" onClick={toggleMenu}>
+              <Link
+                to="/product"
+                className={`${
+                  isActive("/product")
+                    ? "bg-green-500 text-white"
+                    : "hover:bg-white hover:bg-opacity-10 hover:text-green-400"
+                } block w-full h-full transition duration-300 ease-in-out`}
               >
-                Services
-              </div>
-              <div className="max-h-40 overflow-y-auto mt-2 bg-white text-black p-4 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out absolute left-0 w-full">
-                <DropdownMenu />
-              </div>
+                Product
+              </Link>
             </li>
             <li className="py-2 px-4" onClick={toggleMenu}>
               <Link
                 to="/contact"
-                className="block w-full h-full hover:bg-white hover:bg-opacity-10 hover:text-green-400 transition duration-300 ease-in-out"
+                className={`${
+                  isActive("/contact")
+                    ? "bg-green-500 text-white"
+                    : "hover:bg-white hover:bg-opacity-10 hover:text-green-400"
+                } block w-full h-full transition duration-300 ease-in-out`}
               >
                 Contact
               </Link>
+            </li>
+
+            <li className="py-2 px-4 relative group">
+              <Link 
+               to="/service"
+                className="cursor-pointer block w-full h-full hover:bg-white hover:bg-opacity-10 hover:text-green-400 transition duration-300 ease-in-out"
+                onClick={toggleMenu}
+              >
+                Services
+              </Link>
+              <div className="max-h-40 overflow-y-auto mt-2 bg-white text-black p-4 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out absolute left-0 w-full">
+                <DropdownMenu />
+              </div>
             </li>
           </ul>
         </div>
