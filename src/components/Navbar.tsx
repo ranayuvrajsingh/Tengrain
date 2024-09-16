@@ -28,9 +28,9 @@ const Navbar: React.FC = () => {
       <div className="fixed top-0 left-0 right-0 bg-black text-white text-sm py-2 px-4 flex justify-between items-center z-40">
         <div className="flex items-center space-x-4">
           <FaMapMarkerAlt />
-          <span>Jaipur, Rajasthan</span>
+          <span>United Kingdom, India, Africa</span>
           <FaPhoneAlt />
-          <span>+91 9876543210</span>
+          <span>+44 786 203 1265</span>
         </div>
         <div className="flex items-center space-x-4">
           <a
@@ -104,7 +104,7 @@ const Navbar: React.FC = () => {
                 {/* Full-page overlay */}
                 {isOverlayVisible && (
                   <div
-                    className="fixed inset-0 min-w-full bg-opacity-90 backdrop-blur-md z-40 overflow-auto"
+                    className="fixed inset-0 min-w-full bg-white  bg-opacity-90 backdrop-blur-md z-40 overflow-auto"
                     style={{ top: "6rem" }}
                     onMouseEnter={() => setIsOverlayVisible(true)}
                     onMouseLeave={() => setIsOverlayVisible(false)}
